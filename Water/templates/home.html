@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Water Potability Prediction</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #f0f0f0;
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 3rem;
+      border-radius: 4px;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+      width: 400px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+    }
+
+    input[type="number"] {
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      width: 100%;
+    }
+
+    button {
+      background-color: #4CAF50; /* Green */
+      border: none;
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45A049; /* Green hover */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Water Potability Prediction</h1>
+    <form method="post" action="{{ url_for('predict_potability') }}">
+      <label for="ph">pH:</label>
+      <input type="number" step="0.01" name="ph" id="ph" required><br>
+      <label for="Hardness">Hardness (mg/L):</label>
+      <input type="number" step="1" name="Hardness" id="Hardness" required><br>
+      <label for="Solids">Total Dissolved Solids (mg/L):</label>
+      <input type="number" step="1" name="Solids" id="Solids" required><br>
+      <label for="Chloramines">Chloramines (mg/L):</label>
+      <input type="number" step="0.01" name="Chloramines" id="Chloramines" required><br>
+      <label for="Sulfate">Sulfate (mg/L):</label>
+      <input type="number" step="1" name="Sulfate" id="Sulfate" required><br>
+      <label for="Conductivity">Conductivity (μS/cm):</label>
+      <input type="number" step="1" name="Conductivity" id="Conductivity" required><br>
+      <label for="Organic_carbon">Organic Carbon (mg/L):</label>
+      <input type="number" step="0.01" name="Organic_carbon" id="Organic_carbon" required><br>
+      <label for="Trihalomethanes">Trihalomethanes (μg/L):</label>
+      <input type="number" step="0.01" name="Trihalomethanes" id="Trihalomethanes" required><br>
+      <label for="Turbidity">Turbidity (NTU):</label>
+      <input type="number" step="0.01" name="Turbidity" id="Turbidity" required><br>
+      <button type="submit">Predict Potability</button>
+    </form>
+  </div>
+</body>
+</html>
